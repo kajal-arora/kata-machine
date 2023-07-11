@@ -1,24 +1,26 @@
 type LLNode<T> = {
     value: T;
-    next?: LLNode<T> | null;
+    next: LLNode<T> | null;
 };
 
 function newNode<T>(val: T): LLNode<T> {
     return {
         value: val,
+        next: null,
     };
 }
-// 1
-function insertArrayOfElementsInLList<T>(arr: T[]): LLNode<T> {
-    let pN: LLNode<T> = newNode(arr[0]);
-    for (let i = 1; i < arr.length; i++) {
-        const nn = newNode(arr[i]);
-        pN.next = nn;
-        pN = nn;
-    }
-    return pN;
-}
 
+function insertArrayOfElementsInLList<T>(arr: T[]): LLNode<T> {
+    let head: LLNode<T> = newNode(arr[0]);
+    let currNode = head;
+    for (let i = 1; i < arr.length; i++) {
+        let nn = newNode(arr[i]);
+        currNode.next = nn;
+        currNode = nn;
+    }
+    printLL(head);
+    return head;
+}
 
 function reverseLinkedList() {
     let llHead = insertArrayOfElementsInLList([3, 455, 234, 13, 143, 1242, 89]);
@@ -41,6 +43,7 @@ function reverseLinkedList() {
         currNode.next = prevNode;
         llHead = currNode;
     }
+    printLL(llHead);
 }
 
 function printLL<T>(llHead: LLNode<T>) {
@@ -53,9 +56,9 @@ function printLL<T>(llHead: LLNode<T>) {
 
     while (currNode) {
         str += currNode.value + " -> ";
-        if (currNode.next) {
-            currNode = currNode.next;
-        }
+        currNode = currNode.next!;
     }
     console.log(str);
 }
+
+reverseLinkedList();
