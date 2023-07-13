@@ -3,7 +3,7 @@ type LNode<T> = {
     next?: LNode<T>;
 };
 export default class Queue<T> {
-    //FIFO O(1) Operations like insertion or deletion in a queue take constant time i.e., O(1)
+    //FIFO O(1) Operations like insertion or deletion in a queue take constant time i.e., O(1). Insertion happens at tail (from end) while deletion happens at head.
     public length: number;
     private head?: LNode<T>;
     private tail?: LNode<T>;
