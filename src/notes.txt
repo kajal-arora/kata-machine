@@ -1,0 +1,71 @@
+Notes linkl - https://theprimeagen.github.io/fem-algos/
+Difference between array and linked list
+
+Usability
+Time
+Space (whiteboard)
+
+1. Predefined memory allocation for array therefore, more memory consumption. We cant really insert a value in array. for loops are being used to shift/unshoft it.
+O(1) to get a value or to write over a value.  Eg if we are declaring array of 1000, it will allocate memory of 1000 upfront even if all are not being used. while in linked list its gets allocated based on node. M
+Memory usage is more optimised LL while differ  runtime cost is there. With array, memory is already allocated, operations can be performed easily while in LL, creating node, setting links would be there but less memory is getting use 
+
+Traversing - LL can have only linear search. Use LL in case when element needs to be pushed or popped from list. Arry can be used in case of scannig list or randomly access any element 
+
+ArrayList -
+
+which is better for stack - linkedlist or arraylist.  - depends.. with arrayList, it's more convenient and it gives random access to index.. angle bracket access but there is  a tradeoff. Getting index on linked list is heavy while removing element from front is heavy on array list
+as removing or adding in front in array, you have to shift everything
+ 
+
+ Array Buffer
+ - index based head and tail unlike arrays where head is at 0 while tail is length
+  
+  What is Recursion?
+The simplest way to think of recursion is a function that calls itself until the problem is solved. This usually involves what is referred to as a "base case." A base case is the point in which the problem is solved at.
+Knowing base case in recursion is important 
+
+The simplest example
+function foo(n: number): number {
+    // Base Case
+    if (n === 1) {
+        return 1;
+    }
+
+    // We shall Recurse!
+    return n + foo(n - 1);
+}
+ under the hood whats happening.. 3 values which helps to visualise it - return address(how is the function called as once func is done, it needs to return the value), return value, argument
+ example foo(5)
+
+        return address | return value | argument
+foo5:                  | 5+           | 5
+foo4:        foo5      | 4+           | 4
+foo3:        foo4      | 3+           | 3
+foo2:        foo3      | 2+           | 2
+foo1:        foo2       | 1            |1 // hit the base case
+
+stack is getting create.. first it goes down the stack and then up the stack
+
+        return address | return value | argument
+foo5:                  | 5+10           | 5
+foo4:        foo5      | 4+6           | 4
+foo3:        foo4      | 3+3           | 3
+foo2:        foo3      | 2+1            | 2
+foo1:        foo2      | 1            |1 // hit the base case
+
+ 
+The biggest mistake of recursion
+Don't put it into the 2 steps.
+
+1. Base Case
+2.  Recurse
+
+Recursion can help in trees, graphs, pathing
+
+recurse can be broken in 3 steps exmaple in case of pathing
+1. pre: do something before recurse eg:  n + 
+2. recurse foo(n - 1);
+3. post operation. eg out=  
+
+
+

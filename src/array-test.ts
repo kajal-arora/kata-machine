@@ -1,5 +1,5 @@
 
-const a: number[] = [];
+const a: number[] = []; // its an arraylist as memory can grow based on the data . Its a dynamic array as we get methods like pop, push, shift, unshift. while array is contigious spot of memory or static memory 
 
 function time(fn: () => void): number {
     const now = Date.now();
@@ -13,7 +13,7 @@ function unshift(number: number) {
     }
 }
 
-function shift(number: number) {
+function shift(number: number) { //linear and expotential O(n)
     for (let i = 0; i < number; ++i) {
         a.shift();
     }

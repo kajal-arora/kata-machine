@@ -2,6 +2,11 @@ import Stack from "@code/Stack";
 
 test("stack", function () {
     const list = new Stack<number>();
+    list.push(5);
+    expect(list.pop()).toEqual(5);
+    list.pop();
+    list.pop();
+    expect(list.length).toEqual(0);
 
     list.push(5);
     list.push(7);

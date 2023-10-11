@@ -15,29 +15,38 @@ export default class Stack<T> {
 
     push(item: T): void {
         const node: SNode<T> = { value: item, next: null };
+        this.length++;
         if (!this.head) {
             this.head = node;
-        } else {
-            node.next = this.head;
-            this.head = node;
+            return;
         }
-        this.length++;
+
+        node.next = this.head;
+        this.head = node;
     }
+
     pop(): T | undefined {
         if (!this.head) {
             return undefined;
         }
+
         const node = this.head;
-   
-        this.head = this.head.next!;
+        this.head = node.next!;
         node.next = null;
+
         this.length--;
+        
         return node.value;
     }
+
     peek(): T | undefined {
-        if (!this.head) {
-            return undefined;
-        }
-        return this.head.value;
+        return this.head?.value;
     }
 }
+
+const s = new Stack();
+
+s.pop();
+s.pop();
+s.pop();
+console.log(s.length);
