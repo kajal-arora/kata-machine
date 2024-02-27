@@ -269,31 +269,54 @@ function deleteAlternateValues(head: LNode) {
 //     printLLElements(head);
 // }
 
-function reverseLL(head: LNode) {
-    let currNode: LNode | null = head;
-    let prevNode: LNode = head;
-    let nextNode: LNode | null = head;
+// function reverseLL(head: LNode) {
+//     let currNode: LNode | null = head;
+//     let prevNode: LNode = head;
+//     let nextNode: LNode | null = head;
 
-    if (!currNode) {
-        return console.error("Empty LL");
-    }
+//     if (!currNode) {
+//         return console.error("Empty LL");
+//     }
+
+//     while (currNode.next) {
+//         if (currNode === head && prevNode) {
+//             currNode = currNode.next;
+//             prevNode.next = null;
+//         } else {
+//             nextNode = currNode.next;
+//             currNode.next = prevNode;
+//             prevNode = currNode;
+//             currNode = nextNode;
+//         }
+//     }
+//     if (!currNode.next) {
+//         head = currNode;
+//         head.next = prevNode;
+//     }
+//     printLLElements(head);
+// }
+
+function reverseLL(head: LNode) {
+    let currNode: LNode = head;
+    let prevNode: LNode = head;
 
     while (currNode.next) {
-        if (currNode === head && prevNode) {
+        if (currNode === head) {
             currNode = currNode.next;
             prevNode.next = null;
         } else {
-            nextNode = currNode.next;
+            let tempNode = currNode.next;
             currNode.next = prevNode;
             prevNode = currNode;
-            currNode = nextNode;
+            currNode = tempNode;
         }
+     
+       
     }
-    if (!currNode.next) {
-        head = currNode;
-        head.next = prevNode;
-    }
+    currNode.next = prevNode;
+    head = currNode;
     printLLElements(head);
 }
 
+console.log("reverse");
 reverseLL(head);

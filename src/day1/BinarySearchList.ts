@@ -33,7 +33,7 @@ export default function bs_list(haystack: number[], needle: number): boolean {
             low = middle + 1;
         }
         else {
-            high = middle;
+            high = middle; // as end value is not inclusive
         }
 
     } while (low < high);
